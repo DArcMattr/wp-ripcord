@@ -1,1 +1,5 @@
 path: htdocs
+db:
+  file: -
+
+require: ./cli-vars.php
