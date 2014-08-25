@@ -16,13 +16,15 @@
 require('vars.php');
 
 define('DB_NAME', 'Your WordPress DB Name here' );     // The name of the database
-define('DB_NAME', 'database_name_here');
 
 // sensitive information which should not be committed to source control is
 // accessed through a variable that's defined in the vars.php file
 
-define('DB_USER',          $site_info[DB_NAME]['DB_USER'] );
-define('DB_PASSWORD',      $site_info[DB_NAME]['DB_PASSWORD'] );
+// cli-vars.php will load its own DB_USER & DB_PASSWORD values
+if ( ! defined('DB_USER') ):
+  define('DB_USER',          $site_info[DB_NAME]['DB_USER'] );
+  define('DB_PASSWORD',      $site_info[DB_NAME]['DB_PASSWORD'] );
+endif;
 define('DB_HOST',          $site_info[DB_NAME]['DB_HOST'] );
 define('AUTH_KEY',         $site_info[DB_NAME]['AUTH_KEY'] );
 define('SECURE_AUTH_KEY',  $site_info[DB_NAME]['SECURE_AUTH_KEY'] );
