@@ -1,0 +1,14 @@
+#!/bin/sh
+if [ -f ./script-vars.sh ]; then
+  . ./script-vars.sh
+else
+  echo "script-vars.sh must be present"
+  exit 1
+fi
+
+db_sync
+
+wp core update --allow-root
+wp core update-db --allow-root
+wp plugin update --all --allow-root
+wp theme update --all --allow-root
