@@ -13,27 +13,28 @@
  *
  * @package WordPress
  */
-require('vars.php');
+require 'vars.php';
 
-define('DB_NAME', 'Your WordPress DB Name here' );     // The name of the database
+define('DB_NAME', 'Your WordPress DB Name here');     // The name of the database
 
 // sensitive information which should not be committed to source control is
 // accessed through a variable that's defined in the vars.php file
 
 // cli-vars.php will load its own DB_USER & DB_PASSWORD values
-if ( ! defined('DB_USER') ):
-  define('DB_USER',          $site_info[DB_NAME]['DB_USER'] );
-  define('DB_PASSWORD',      $site_info[DB_NAME]['DB_PASSWORD'] );
+if (! defined('DB_USER') ) :
+    define('DB_USER',          $site_info[DB_NAME]['DB_USER']);
+    define('DB_PASSWORD',      $site_info[DB_NAME]['DB_PASSWORD']);
 endif;
-define('DB_HOST',          $site_info[DB_NAME]['DB_HOST'] );
-define('AUTH_KEY',         $site_info[DB_NAME]['AUTH_KEY'] );
-define('SECURE_AUTH_KEY',  $site_info[DB_NAME]['SECURE_AUTH_KEY'] );
-define('LOGGED_IN_KEY',    $site_info[DB_NAME]['LOGGED_IN_KEY'] );
-define('NONCE_KEY',        $site_info[DB_NAME]['NONCE_KEY'] );
-define('AUTH_SALT',        $site_info[DB_NAME]['AUTH_SALT'] );
-define('SECURE_AUTH_SALT', $site_info[DB_NAME]['SECURE_AUTH_SALT'] );
-define('LOGGED_IN_SALT',   $site_info[DB_NAME]['LOGGED_IN_SALT'] );
-define('NONCE_SALT',       $site_info[DB_NAME]['NONCE_SALT'] );
+
+define('DB_HOST',          $site_info[DB_NAME]['DB_HOST']);
+define('AUTH_KEY',         $site_info[DB_NAME]['AUTH_KEY']);
+define('SECURE_AUTH_KEY',  $site_info[DB_NAME]['SECURE_AUTH_KEY']);
+define('LOGGED_IN_KEY',    $site_info[DB_NAME]['LOGGED_IN_KEY']);
+define('NONCE_KEY',        $site_info[DB_NAME]['NONCE_KEY']);
+define('AUTH_SALT',        $site_info[DB_NAME]['AUTH_SALT']);
+define('SECURE_AUTH_SALT', $site_info[DB_NAME]['SECURE_AUTH_SALT']);
+define('LOGGED_IN_SALT',   $site_info[DB_NAME]['LOGGED_IN_SALT']);
+define('NONCE_SALT',       $site_info[DB_NAME]['NONCE_SALT']);
 
 /**
  * WordPress Database Table prefix.
@@ -51,8 +52,8 @@ $table_prefix  = $site_info[DB_NAME]['table_prefix'];
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-define('DB_CHARSET',  'utf8' );
-define('DB_COLLATE',  '' );
+define('DB_CHARSET',  'utf8');
+define('DB_COLLATE',  '');
 
 define('WPLANG', '');
 
@@ -67,9 +68,14 @@ define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
-/** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+/**
+ * Absolute path to the WordPress directory.
+*/
+if (!defined('ABSPATH') ) {
+    define('ABSPATH', dirname(__FILE__) . '/');
+}
 
-/** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+/**
+ * Sets up WordPress vars and included files.
+*/
+require_once ABSPATH . 'wp-settings.php';
